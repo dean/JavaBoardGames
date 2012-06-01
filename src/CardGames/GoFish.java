@@ -66,6 +66,9 @@ public class GoFish extends CardGame{
 		p("Next, a player will ask another player if they have a card and if they do, the card is given to the player who asked");
 		p("If not, the player who asked must \"Go Fish\" and draw a card. It then proceeds to the next players turn.");
 		
+		for(Player p : players)
+			handleMatches(p);
+		
 		Scanner input = new Scanner(System.in);
 		while(!gameOver()){
 			for(int i=0; i<players.size(); i++){
@@ -179,7 +182,7 @@ public class GoFish extends CardGame{
 		}
 		return false;
 	}
-	
+	// This is fucking confusing, I have no idea how i made this work.
 	public void handleMatches(Player p){
 		HashMap <Integer, Integer> nonpairs = new HashMap<Integer, Integer>();
 		
